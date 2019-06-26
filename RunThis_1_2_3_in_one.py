@@ -14,4 +14,4 @@ end = timer()
 print("Timer: " + str(round((end-start)/60,3)) + " minutes")
 
 # Trigger Extract refresh (asyncronous)
-os.system("python refreshExtractByName.py -s http://localhost:8000 -u admin -pw admin -dn \"prices_paid_database (local CSV files with Union)\" ")
+os.system("python refreshExtractByName.py -s <your_Tableau_Server_URL_here> -u <your_admin_username> -pw <your_admin_password> -dn \"<your_unique_datasource_name_here>\" ")
