@@ -1,16 +1,20 @@
 from google.cloud import bigquery
 
 import os
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:\dev\GCP_keys\gcp_service_account_key.json"
 
-project = "gcp-tableau-emea-partner-sc"
-dataset_id = "data_london_gov_uk"
-table_id = "prices_paid_database"
-bucket_name = 'gbq_export_alex_test'
+# --- START YOUR CONFIGURATIONS HERE --- #
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="<your-private-key-file.json>"
+
+project = "<your-google-project-id>"
+dataset_id = "<your-dataset-id>"
+table_id = "<your-table-id>"
+bucket_name = "<your-google-cloud-storage-bucket>" #the extracted files will go here
+filename_pattern = "<exported_files-*.csv>"
+# --- END YOUR CONFIGURATIONS HERE --- #
 
 def export_to_bucket():
     client = bigquery.Client()
-    destination_uri = "gs://{}/{}".format(bucket_name, "prices_paid_database-*.csv")
+    destination_uri = "gs://{}/{}".format(bucket_name, filename_pattern)
     dataset_ref = client.dataset(dataset_id, project=project)
     table_ref = dataset_ref.table(table_id)
 
