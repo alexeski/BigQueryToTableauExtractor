@@ -1,8 +1,10 @@
 import os
 
-bucket_name = 'gbq_export_alex_test'
+# --- START YOUR CONFIGURATIONS HERE --- #
+bucket_name = '<your-google-cloud-storage-bucket>'
 file_format = 'csv'
-destination_path = 'c:\\tmp\gbqExtracts' #local path where you want to savethe files downloaded
+destination_path = '<path-to-your-local-folder>' #local path where you want to savethe files downloaded
+# --- END YOUR CONFIGURATIONS HERE --- #
 
 def download_bucket_files():
     myCmd="gsutil -m cp -r gs://{}/*.{} {}".format(bucket_name,file_format,destination_path)
