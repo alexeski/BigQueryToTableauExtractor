@@ -21,3 +21,5 @@ Now that all CSVs are local and visible to Tableau Server, we use Tableau's REST
 ----
 
 We've also included a 4th python file, which basically wraps the three scripts above into one single python file. You should run this one, but at the moment, the configurations are spread into each files (I know, this is not a best practices course at all ;) )
+
+The full instructions how to use this code here: https://community.tableau.com/docs/DOC-23161
